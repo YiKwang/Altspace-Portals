@@ -33,19 +33,5 @@
       <a-entity position="6.5 0 0" rotation="0 -90 0" n-layout-browser="url:http://altspacevr.github.io/event-portals-app/;isEnclosure:true;"></a-entity>
     <!--Ending the scene--> 
     </a-scene>
-    <script type="text/javascript">
-		altspace.getUser()
-			.then(function(user){
-				console.log('The user id:',user.userId);
-				if(user.userId==="838717916370174468"){
-					var portal_entity = document.createElement('a-entity');
-					portal_entity.setAttribute('n-portal','targetSpace: capt-cannabis-says-poke-smot');
-					portal_entity.setAttribute('rotation','0 -90 0');
-					portal_entity.setAttribute('position','6.5 0 4');
-					document.querySelector('a-sene').appendChild(portal_entity);
-				}
-				
-			})
-	</script>
   </body>
 </html>
