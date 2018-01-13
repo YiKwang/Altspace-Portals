@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head><!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Portals</title>
+    <meta name="Portals" content="Portals">
+    <!--Calling on aframes JS-->
+    <script src="https://aframe.io/releases/0.3.0/aframe.js"></script>
+    <!--Calling on the Altspace SDK js-->
+    <!--<script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.4.1/dist/altspace.js"></script>-->
+    <script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.4.5/dist/altspace.min.js"></script>
+  </head>
+  <body>
+    <!-- Starting the scene, defining the space to be a fullspace app-->
+    <!--<a-scene altspace="verticalAlign: middle; fullspace: true" vr-mode-ui="enabled: false">-->
+    <!-- Starting the scene, defining the alignment of the scent to the middle of the boundary box-->
+    <a-scene altspace='vertical-align: middle'>
+      <!--Asset Loading-->
+      <!--<a-assets> 
+      </a-assets>-->
+      <!--Load portals-->
+      <a-entity position='6.5 0.2 -2' rotation='0 -90 0' n-portal='targetSpace: new-user-info'></a-entity>
+      <a-entity n-billboard n-text="fontSize: 3; text:N.U.I.A." position="6.1 0.7 -2"></a-entity>
+      <a-entity position='6.5 0.2 0' rotation='0 -90 0' n-portal='targetSpace: campfire-lobby'></a-entity>
+      <a-entity n-billboard n-text="fontSize: 3; text:Campfire" position="6.1 0.7 0"></a-entity>
+      <a-entity position='6.5 0.2 2' rotation='0 -90 0' n-portal='targetSpace: lunar-s-medieval-tavern'></a-entity>
+      <a-entity n-billboard n-text="fontSize: 3; text:Lunars Tavern" position="6.1 0.7 2"></a-entity>
+      <!--<a-entity position='6.5 0.2 4' rotation='0 -90 0' n-portal='targetSpace: capt-cannabis-says-poke-smot'></a-entity>
+      <a-entity n-billboard n-text="fontSize: 3; text:Grow Room" position="6.1 0.7 4"></a-entity>-->
+      <!--Make another boundary box and load event portals-->
+      <a-entity position="6.5 0 0" rotation="0 -90 0" n-layout-browser="url:http://altspacevr.github.io/event-portals-app/;isEnclosure:true;"></a-entity>
+    <!--Ending the scene--> 
+    </a-scene>
+    <script type="text/javascript">
+		altspace.getUser()
+			.then(function(user){
+				console.log('The user id:',user.userId);
+				if(user.userId==="838717916370174468"){
+					var portal_entity = document.createElement('a-entity');
+					portal_entity.setAttribute('n-portal','targetSpace: capt-cannabis-says-poke-smot');
+					portal_entity.setAttribute('rotation','0 -90 0');
+					portal_entity.setAttribute('position','6.5 0 4');
+					document.querySelector('a-sene').appendChild(portal_entity);
+				}
+				
+			})
+	</script>
+  </body>
+</html>
